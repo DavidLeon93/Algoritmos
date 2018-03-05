@@ -29,22 +29,29 @@ class Main {
         matrizf[i][j] = 0;
       }
     }
-    
-    double time_start, time_end;
-    time_start = System.currentTimeMillis();
-    for (i = 0; i < n; i++)
+    double time, suma = 0.0;
+    for(int x = 0; x < 10; x++)
     {
-      for (j = 0; j < n; j++)
+      double time_start, time_end;
+      time_start = System.currentTimeMillis();
+      for (i = 0; i < n; i++)
       {
-        for (k = 0; k < n; k++)
+        for (j = 0; j < n; j++)
         {
-          matrizf[i][j] += matriz[i][k]*matriz2[k][j];
+          for (k = 0; k < n; k++)
+          {
+            matrizf[i][j] += matriz[i][k]*matriz2[k][j];
+          }
         }
       }
+      time_end = System.currentTimeMillis();
+      time = time_end - time_start;
+      suma = suma + time;
+      System.out.println("el tiempo de ejecución fue: "+ time/1000);
+      
     }
-    time_end = System.currentTimeMillis();
-    System.out.println("el tiempo de ejecución fue: "+ ( time_end - time_start )/1000);
-
+    System.out.println("el promedio del tiempo de ejecución fue: "+ (suma/10)/1000);
+    
     /*for (i = 0; i < matrizf.length; i++)
     {
       for (j = 0; j < matrizf[i].length; j++)
